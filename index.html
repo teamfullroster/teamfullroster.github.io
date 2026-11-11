@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Full Roster builds websites and monthly growth systems for independent gyms: more trial sign-ups, faster follow-up and more Google reviews.">
+<meta property="og:title" content="Full Roster | Websites & growth for independent gyms">
+<meta property="og:description" content="Websites and monthly growth plans built for independent gyms.">
+<title>Full Roster | Websites &amp; growth for independent gyms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one long scroll, gym-floor energy. Condensed heavy display type, a "roster board" motif (filled vs empty slots), orange used only for actions and the filled bar. */
+:root{
+  --ink:#0F1A2B; --paper:#F4F3EE; --panel:#FFFFFF; --muted:#5B6576; --line:#DAD8CF;
+  --go:#FF5A1F; --go-ink:#0F1A2B; --ok:#1B7F4A; --miss:#C8361A; --band:#0F1A2B; --band-fg:#F4F3EE; --band-muted:#A8B1BF;
+  --display:'Archivo','Arial Narrow',Arial,sans-serif; --body:'Inter',system-ui,-apple-system,sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --ink:#EEF0F3; --paper:#0B1320; --panel:#131D2D; --muted:#9AA5B5; --line:#253247;
+  --go:#FF6A33; --go-ink:#0B1320; --ok:#3DBE7C; --miss:#FF7A5C; --band:#050A12; --band-fg:#EEF0F3; --band-muted:#8F9AAB; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#EEF0F3; --paper:#0B1320; --panel:#131D2D; --muted:#9AA5B5; --line:#253247;
+  --go:#FF6A33; --go-ink:#0B1320; --ok:#3DBE7C; --miss:#FF7A5C; --band:#050A12; --band-fg:#EEF0F3; --band-muted:#8F9AAB; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-stretch:72%;font-weight:850;line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance;text-transform:uppercase}
+p{margin:0}
+a{color:inherit}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--go);color:var(--go-ink);font-weight:700;font-size:15px;padding:13px 20px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font-family:var(--body)}
+.btn:focus-visible,.copy:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-stretch:80%;font-weight:900;font-size:20px;letter-spacing:.06em;text-decoration:none}
+.bars{display:flex;gap:3px;align-items:flex-end}.bars i{width:5px;border-radius:1px;background:var(--go)}
+.links{display:flex;gap:24px;font-size:14px;font-weight:500;color:var(--muted)}
+.links a{text-decoration:none}.links a:hover{color:var(--ink)}
+@media (max-width:760px){.links{display:none}}
+/* hero */
+.hero{padding-block:64px 72px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(48px,8vw,96px)}
+.hero h1 span{color:var(--go)}
+.lede{font-size:19px;color:var(--muted);max-width:34ch;margin-top:20px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.fine{font-size:13px;color:var(--muted);margin-top:14px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+/* roster board */
+.board{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:0 18px 40px -24px rgba(15,26,43,.45);min-width:0}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.board-head b{font-family:var(--display);font-stretch:75%;font-size:22px;text-transform:uppercase}
+.slots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:16px 0 6px}
+.slots i{aspect-ratio:1;border-radius:3px;background:var(--line)}
+.slots i.f{background:var(--go)}
+.board small{font-size:12px;color:var(--muted)}
+.score{margin-top:16px;border-top:1px solid var(--line)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row b.m{color:var(--miss)}.row b.g{color:var(--ok)}
+/* sections */
+section{padding-block:72px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(36px,5vw,56px);max-width:16ch}
+.sec-head p{max-width:42ch;color:var(--muted)}
+.leaks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.leak{border-top:4px solid var(--ink);padding-top:16px;min-width:0}
+.leak h3{font-size:26px;margin-bottom:8px}
+.leak p{color:var(--muted);font-size:15px}
+@media (max-width:760px){.leaks{grid-template-columns:1fr}}
+.band{background:var(--band);color:var(--band-fg)}
+.band .sec-head p,.band .svc p{color:var(--band-muted)}
+.svcs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.svc{border:1px solid color-mix(in srgb,var(--band-fg) 16%,transparent);border-radius:var(--r);padding:24px;min-width:0}
+.svc h3{font-size:28px;margin:6px 0 10px}
+.svc .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--go)}
+.svc ul{margin:14px 0 0;padding:0;list-style:none;font-size:14px}
+.svc li{padding:6px 0;border-top:1px solid color-mix(in srgb,var(--band-fg) 12%,transparent)}
+@media (max-width:1060px){.svcs{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.svcs{grid-template-columns:1fr}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.step{min-width:0}
+.step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--display);font-weight:900;font-size:20px;margin-bottom:14px}
+.step h3{font-size:24px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:15px}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.plan.pick{border:2px solid var(--go)}
+.plan .eyebrow{color:var(--go)}
+.plan h3{font-size:34px}
+.price{font-family:var(--display);font-stretch:72%;font-weight:900;font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:15px;font-weight:500;color:var(--muted);margin-left:4px}
+.plan ul{margin:0;padding:0;list-style:none;font-size:15px;flex:1}
+.plan li{padding:9px 0 9px 26px;border-top:1px solid var(--line);position:relative}
+.plan li::before{content:"";position:absolute;left:2px;top:15px;width:12px;height:7px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
+.note{margin-top:18px;background:var(--panel);border:1px dashed var(--line);border-radius:var(--r);padding:16px 18px;font-size:14px;color:var(--muted)}
+.note b{color:var(--ink)}
+@media (max-width:960px){.plans{grid-template-columns:1fr}}
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+details{border-top:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-family:var(--display);font-size:22px;line-height:1;color:var(--go)}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);font-size:15px;margin-top:8px}
+@media (max-width:760px){.faq{grid-template-columns:1fr}}
+/* contact */
+.contact{text-align:left}
+.contact h2{font-size:clamp(40px,6vw,72px);max-width:14ch}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
+.addr{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:clamp(22px,3.4vw,32px);user-select:all;word-break:break-all}
+.copy{background:var(--go);color:var(--go-ink);border:0;border-radius:999px;padding:10px 16px;font-weight:700;font-family:var(--body);cursor:pointer}
+footer{padding-block:28px;font-size:13px;color:var(--band-muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (prefers-reduced-motion:no-preference){
+  .slots i.f{animation:fill .5s ease-out both}
+  @keyframes fill{from{transform:scale(.4);opacity:.3}to{transform:scale(1);opacity:1}}
+}
+</style>
+</head><body>
+
+
+<nav><div class="wrap">
+  <a class="logo" href="#top"><span class="bars"><i style="height:8px"></i><i style="height:12px"></i><i style="height:16px"></i><i style="height:20px"></i></span>FULL ROSTER</a>
+  <div class="links"><a href="#leaks">Why</a><a href="#services">What we do</a><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+  <a class="btn" href="#contact">Free audit</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <div class="eyebrow">Websites &amp; follow-up for independent gyms</div>
+    <h1 style="margin-top:14px">Fill every <span>class.</span></h1>
+    <p class="lede">We turn your website, Google profile and follow-up into a system that books intro classes while you coach.</p>
+    <div class="cta"><a class="btn" href="#contact">Get your free audit</a><a class="btn ghost" href="#pricing">See pricing</a></div>
+    <p class="fine">Free audit includes a mockup of your new homepage. No contracts.</p>
+  </div>
+  <aside class="board" aria-label="Sample gym audit">
+    <div class="board-head"><b>Sample audit</b><span class="eyebrow">Your gym</span></div>
+    <div class="slots" aria-hidden="true">
+      <i class="f" style="animation-delay:.00s"></i><i class="f" style="animation-delay:.04s"></i><i class="f" style="animation-delay:.08s"></i><i class="f" style="animation-delay:.12s"></i><i class="f" style="animation-delay:.16s"></i><i class="f" style="animation-delay:.20s"></i><i></i><i></i><i></i><i></i>
+      <i class="f" style="animation-delay:.24s"></i><i class="f" style="animation-delay:.28s"></i><i class="f" style="animation-delay:.32s"></i><i class="f" style="animation-delay:.36s"></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <small>Example: a 6 AM class with open spots that a better website could fill.</small>
+    <div class="score">
+      <div class="row"><span>Free intro offer on homepage</span><b class="m">Missing</b></div>
+      <div class="row"><span>Schedule &amp; pricing online</span><b class="m">Missing</b></div>
+      <div class="row"><span>Follow-up after a trial</span><b class="m">Missing</b></div>
+      <div class="row"><span>Asking members for reviews</span><b class="m">Missing</b></div>
+      <div class="row"><span>Phone &amp; address</span><b class="g">Good</b></div>
+    </div>
+  </aside>
+</div></header>
+
+<section id="leaks" style="padding-top:24px"><div class="wrap">
+  <div class="sec-head"><h2>Where gyms lose members</h2><p>Most independent gyms have great coaching and a website that sends people to the chain down the street.</p></div>
+  <div class="leaks">
+    <div class="leak"><h3>No reason to stay</h3><p>A visitor can't find the schedule, the price or a first step. They hit back and pick the next search result.</p></div>
+    <div class="leak"><h3>Trials that go quiet</h3><p>Someone books a free intro, doesn't show, and never hears from you again. That's a member you already paid to find.</p></div>
+    <div class="leak"><h3>Reviews nobody asked for</h3><p>Happy members would leave a 5-star review. Nobody asks, so your Google profile looks quieter than your gym floor.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="services"><div class="wrap">
+  <div class="sec-head"><h2>What we do</h2><p>Websites, follow-up, reviews and growth, done for you. We handle the tech so you can stay on the floor.</p></div>
+  <div class="svcs">
+    <div class="svc"><span class="tag">Website</span><h3>A site that books intros</h3><p>Fast, mobile-first, built around one button: book a free intro.</p>
+      <ul><li>Schedule, pricing &amp; coaches</li><li>Free-intro sign-up form</li><li>Google Business Profile tune-up</li></ul></div>
+    <div class="svc"><span class="tag">Follow-up</span><h3>Every lead gets a reply</h3><p>Automatic emails that remind, nudge and re-invite, so no trial slips through.</p>
+      <ul><li>Booking confirmation &amp; reminder</li><li>No-show win-back emails</li><li>Lapsed-member re-invite</li></ul></div>
+    <div class="svc"><span class="tag">Reviews</span><h3>Reviews on autopilot</h3><p>A simple ask at the right moment turns happy members into 5-star reviews.</p>
+      <ul><li>Review-request email + QR card</li><li>Timed after a member's 2nd week</li><li>Monthly review count report</li></ul></div>
+    <div class="svc"><span class="tag">Growth</span><h3>More people through the door</h3><p>Already have a good site? We help you get more out of it.</p>
+      <ul><li>Google profile posts &amp; photos</li><li>Win-back emails for past members</li><li>Challenge pages + ad creative (your ad account, your budget)</li></ul></div>
+  </div>
+</div></section>
+
+<section id="process"><div class="wrap">
+  <div class="sec-head"><h2>How it works</h2><p>You see your new homepage before you pay anything.</p></div>
+  <div class="steps">
+    <div class="step"><h3>Free audit</h3><p>We review your site and Google profile and send a 1-page report.</p></div>
+    <div class="step"><h3>See the mockup</h3><p>The audit includes a mockup of your new homepage using your real info.</p></div>
+    <div class="step"><h3>We build it</h3><p>Send us photos, prices and your schedule. We aim to have your site live within a week.</p></div>
+    <div class="step"><h3>You approve</h3><p>Nothing goes live until you sign off. You own the site.</p></div>
+  </div>
+</div></section>
+
+<section id="pricing" style="padding-top:24px"><div class="wrap">
+  <div class="sec-head"><h2>Simple pricing</h2><p>Every gym gets a free audit first. We tell you what you're actually missing, then you pick what fits: a website, monthly growth, or both.</p></div>
+  <div class="plans">
+    <div class="plan">
+      <span class="eyebrow">One-time</span><h3>Website build</h3>
+      <div class="price">$497<small>once</small></div>
+      <ul><li>Custom homepage + up to 4 pages</li><li>Mobile-first, fast loading</li><li>Free-intro sign-up form</li><li>Schedule, pricing &amp; coach bios</li><li>Google Business Profile tune-up</li><li>You own the site, no monthly fee</li></ul>
+      <a class="btn ghost" href="#contact">Start with an audit</a>
+    </div>
+    <div class="plan pick">
+      <span class="eyebrow">Website + upkeep</span><h3>Growth plan</h3>
+      <div class="price">$197<small>/ month</small></div>
+      <ul><li>Website build for $197 instead of $497</li><li>Hosting, security &amp; updates</li><li>Monthly edits (new classes, prices, events)</li><li>Automatic lead follow-up emails</li><li>Review-request system</li><li>Monthly results report</li><li>Cancel anytime, keep your site</li></ul>
+      <a class="btn" href="#contact">Get your free audit</a>
+    </div>
+    <div class="plan">
+      <span class="eyebrow">Already have a good site</span><h3>Scale plan</h3>
+      <div class="price">$247<small>/ month</small></div>
+      <ul><li>Google profile posts &amp; review requests</li><li>Win-back emails for past members</li><li>Monthly member newsletter</li><li>A challenge or promo page every quarter</li><li>Ad creative + copy (you keep control of your ad account and budget)</li><li>Monthly results report</li><li>No contract</li></ul>
+      <a class="btn ghost" href="#contact">Get your free audit</a>
+    </div>
+  </div>
+  <p class="note"><b>Need both?</b> Some gyms need a new site and monthly growth. We'll put together a combined plan after your audit. <b>Founding gyms:</b> our first 3 clients get 50% off setup in exchange for honest feedback we can share.</p>
+</div></section>
+
+<section id="faq" style="padding-top:24px"><div class="wrap">
+  <div class="sec-head"><h2>Questions</h2></div>
+  <div class="faq">
+    <div>
+      <details><summary>Is there a contract?</summary><p>No. The website is a one-time payment. The Growth plan is month to month and you can cancel anytime.</p></details>
+      <details><summary>Do I own the website?</summary><p>Yes. If you cancel the Growth plan, the site is yours and we help you move it.</p></details>
+      <details><summary>I already have a website. Do I need a new one?</summary><p>Not always. If your current site works, we upgrade it: add the intro offer, schedule and follow-up instead of starting over.</p></details>
+    </div>
+    <div>
+      <details><summary>What do you need from me?</summary><p>Your logo, a few photos, your schedule and prices. We write the copy and handle the setup.</p></details>
+      <details><summary>Do you work with yoga, boxing or martial arts studios?</summary><p>Yes. Any independent gym or studio that runs classes or memberships.</p></details>
+      <details><summary>Where are you based?</summary><p>We're fully remote and work with gyms across the US.</p></details>
+    </div>
+  </div>
+</div></section>
+
+<section class="band contact" id="contact"><div class="wrap">
+  <div class="eyebrow" style="color:var(--go)">Free audit</div>
+  <h2 style="margin-top:12px">Want to see your new homepage?</h2>
+  <p style="color:var(--band-muted);margin-top:16px;max-width:52ch">Email us your gym's name and website. We'll send a free audit and a homepage mockup within 2 business days.</p>
+  <div class="mail"><a class="addr" id="addr" href="mailto:teamfullroster@gmail.com" style="color:inherit">teamfullroster@gmail.com</a><button class="copy" id="copy" type="button">Copy email</button></div>
+</div>
+<footer><div class="wrap"><span>© 2026 Full Roster</span><span>Websites, follow-up &amp; reviews for independent gyms</span></div></footer>
+</section>
+
+<script>
+document.getElementById('copy').addEventListener('click', async (e) => {
+  const b = e.currentTarget, t = document.getElementById('addr').textContent;
+  try { await navigator.clipboard.writeText(t); b.textContent = 'Copied'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('addr')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, press Cmd+C'; }
+  setTimeout(() => { b.textContent = 'Copy email'; }, 2200);
+});
+</script>
+
+</body></html>
