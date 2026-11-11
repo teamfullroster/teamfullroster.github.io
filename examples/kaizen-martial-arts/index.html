@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaizen Martial Arts | Demo site by Full Roster</title>
+<meta name="description" content="Demo website built by Full Roster for a fictional martial arts school.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#F5F1EA;--fg:#1D2340;--mut:#5E6380;--line:#E3DCCF;--card:#FFFDF9;--ind:#2B3A8C;--red:#C2412D}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.demo{background:#FF5A1F;color:#0F1A2B;font-size:13px;font-weight:600;text-align:center;padding:8px 16px}.demo a{text-decoration:underline}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:22px;display:flex;align-items:center;gap:10px}
+.logo .en{width:26px;height:26px;border-radius:50%;border:3px solid var(--red);border-right-color:transparent;transform:rotate(-40deg)}
+.links{display:flex;gap:28px;font-size:14px;color:var(--mut)}
+.btn{display:inline-block;background:var(--ind);color:#fff;font-weight:600;font-size:15px;padding:13px 24px;border-radius:10px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(43,58,140,.25)}
+.btn.line{background:transparent;color:var(--ind);border:1.5px solid var(--ind)}
+.hero{margin:10px 20px 0;border-radius:28px;overflow:hidden;min-height:78vh;display:flex;align-items:flex-end;
+  background:linear-gradient(0deg,rgba(29,35,64,.82),rgba(29,35,64,.15) 70%),radial-gradient(circle at 82% 38%,transparent 0 150px,rgba(255,255,255,.10) 151px 162px,transparent 163px),radial-gradient(70% 80% at 80% 30%,#4253a3,transparent 70%),linear-gradient(140deg,#2b3a8c,#1d2340)}
+.hero .hin{padding:56px 44px;color:#fff;max-width:680px}
+h1{font-family:Fraunces,serif;font-weight:700;font-size:clamp(40px,6.4vw,76px);line-height:1.02}
+.hero p{font-size:18px;color:#E4E6F2;margin:18px 0 26px}
+.hero .btn{background:#fff;color:var(--ind)}
+section{padding:90px 0}
+h2{font-family:Fraunces,serif;font-weight:700;font-size:clamp(30px,4.4vw,48px);line-height:1.08}
+.kick{color:var(--red);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+.sub{color:var(--mut);max-width:560px;margin-top:12px}
+.progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:40px}
+.prog{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .2s,box-shadow .2s}
+.prog:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(29,35,64,.08)}
+.prog .age{display:inline-block;font-size:12px;font-weight:700;background:#E9ECF8;color:var(--ind);padding:4px 10px;border-radius:999px}
+.prog h3{font-family:Fraunces,serif;font-size:24px;margin:12px 0 6px}.prog p{color:var(--mut);font-size:15px}
+.belts{display:flex;height:14px;border-radius:9px;overflow:hidden;margin-top:36px}
+.belts i{flex:1;transform-origin:left;transform:scaleX(0);transition:transform .5s ease}
+.belts.in i{transform:scaleX(1)}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.why ul{list-style:none;display:grid;gap:14px}
+.why li{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.why li b{display:block;margin-bottom:2px}.why li span{color:var(--mut);font-size:15px}
+.offer{background:var(--ind);color:#fff;border-radius:28px;padding:56px 44px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.offer .sub{color:#C9CFEE}.offer h2{color:#fff}
+.price{font-family:Fraunces,serif;font-size:56px;font-weight:700}.price small{font-family:Inter;font-size:16px;color:#C9CFEE;font-weight:500}
+form{display:grid;gap:12px;background:#fff;color:var(--fg);border-radius:18px;padding:24px}
+input,select{font:inherit;padding:13px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg)}
+.ok{display:none;color:#2F6B3A;font-weight:600;font-size:14px}
+footer{padding:36px 0;color:var(--mut);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.rev.in{opacity:1;transform:none}
+@media (max-width:860px){.links{display:none}.why,.offer{grid-template-columns:1fr}.hero{margin:10px 12px 0}.hero .hin{padding:36px 24px}.offer{padding:36px 24px}}
+@media (prefers-reduced-motion:reduce){.rev,.belts i{opacity:1;transform:none;transition:none}}
+</style></head>
+<body>
+<div class="demo">Demo site built by Full Roster for a fictional gym. Names, prices and times are examples. <a href="../../">Back to Full Roster</a></div>
+<nav><div class="wrap"><a class="logo" href="#"><span class="en"></span>Kaizen</a>
+<div class="links"><a href="#programs">Programs</a><a href="#why">Why Kaizen</a><a href="#trial">Trial week</a></div>
+<a class="btn" href="#trial">Try a free week</a></div></nav>
+
+<header class="hero"><div class="hin">
+<h1 class="rev">Confidence, one class at a time.</h1>
+<p class="rev">Karate and Brazilian jiu-jitsu for kids, teens and adults. Small classes, patient instructors, and a first week that's completely free.</p>
+<a class="btn rev" href="#trial">Start your free week</a>
+</div></header>
+
+<section id="programs"><div class="wrap">
+<div class="kick rev">Programs</div><h2 class="rev">A class for every age</h2>
+<div class="progs">
+<div class="prog rev"><span class="age">Ages 4–6</span><h3>Little Dragons</h3><p>Focus, listening and coordination through games and basic techniques.</p></div>
+<div class="prog rev"><span class="age">Ages 7–13</span><h3>Youth Karate</h3><p>Discipline, respect and real self-defense, with a belt path kids love.</p></div>
+<div class="prog rev"><span class="age">Teens & adults</span><h3>Jiu-Jitsu</h3><p>Ground-based self-defense and a great workout. Gi and no-gi classes.</p></div>
+</div>
+<div class="belts rev" aria-hidden="true"><i style="background:#fff;border:1px solid #ddd"></i><i style="background:#F3C623"></i><i style="background:#F28C28"></i><i style="background:#3A9A4B"></i><i style="background:#2B6CC4"></i><i style="background:#7A3FA0"></i><i style="background:#7A4B2A"></i><i style="background:#111"></i></div>
+</div></section>
+
+<section id="why" style="padding-top:20px"><div class="wrap why">
+<div><div class="kick rev">Why Kaizen</div><h2 class="rev">Parents notice the difference in a month</h2><p class="sub rev">Kaizen means "continuous improvement." Every student gets a clear next step, and every parent gets a short progress note after each belt test.</p></div>
+<ul>
+<li class="rev"><b>Classes capped at 14</b><span>Every student gets real instruction, not crowd control.</span></li>
+<li class="rev"><b>Flexible schedule</b><span>Weekday after-school and evening times, plus Saturday mornings.</span></li>
+<li class="rev"><b>Safe, clean mats</b><span>Cleaned after every class. Always.</span></li>
+</ul></div></section>
+
+<section id="trial"><div class="wrap"><div class="offer rev">
+<div><div class="kick" style="color:#FFB4A6">Free trial week</div><h2>Try a full week, on us</h2><p class="sub">Come to any beginner class for 7 days. If it's a fit, memberships start at</p><div class="price">$129<small> /month</small></div></div>
+<form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block'">
+<input required placeholder="Parent or student name" aria-label="Name"><input type="email" required placeholder="Email" aria-label="Email">
+<select aria-label="Program"><option>Little Dragons (4–6)</option><option>Youth Karate (7–13)</option><option>Jiu-Jitsu (teens & adults)</option></select>
+<button class="btn" type="submit">Claim my free week</button>
+<div class="ok">Demo only: on a real site, this reserves the week and sends a welcome email with what to bring.</div>
+</form></div></div></section>
+
+<footer><div class="wrap"><span>Kaizen Martial Arts (fictional demo school)</span><span>Website by <a href="../../" style="color:#FF5A1F;font-weight:600">Full Roster</a></span></div></footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rev').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+document.querySelectorAll('.belts i').forEach((b,i)=>b.style.transitionDelay=(i*90)+'ms');
+</script>
+</body></html>

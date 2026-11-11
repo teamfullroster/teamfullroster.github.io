@@ -123,13 +123,57 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   .slots i.f{animation:fill .5s ease-out both}
   @keyframes fill{from{transform:scale(.4);opacity:.3}to{transform:scale(1);opacity:1}}
 }
+
+/* --- v5: work showcase, self-check, contact form, motion --- */
+.work{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.shot{display:block;text-decoration:none;color:inherit;min-width:0}
+.frame{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--panel);box-shadow:0 18px 40px -22px rgba(15,26,43,.45);transition:transform .25s ease,box-shadow .25s ease}
+.frame .bar{display:flex;gap:6px;align-items:center;padding:9px 12px;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--panel) 85%,var(--line))}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.frame .bar span{margin-left:8px;font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frame img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shot:hover .frame{transform:translateY(-4px);box-shadow:0 26px 50px -24px rgba(15,26,43,.55)}
+.shot h3{font-size:24px;margin-top:16px}
+.shot p{color:var(--muted);font-size:15px;margin-top:4px}
+.shot .go{display:inline-block;margin-top:10px;font-weight:700;font-size:14px;color:var(--go)}
+.disclaim{margin-top:22px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){.work{grid-template-columns:1fr;max-width:560px}}
+.check{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+.qs{display:grid;gap:10px}
+.q{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;min-width:0}
+.q span{font-weight:600;font-size:15px}
+.yn{display:flex;gap:6px;flex:none}
+.yn button{font:inherit;font-size:13px;font-weight:700;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);padding:6px 14px;cursor:pointer}
+.yn button[aria-pressed="true"].y{background:var(--ok);border-color:var(--ok);color:#fff}
+.yn button[aria-pressed="true"].n{background:var(--miss);border-color:var(--miss);color:#fff}
+.yn button:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.result{position:sticky;top:90px;background:var(--band);color:var(--band-fg);border-radius:14px;padding:26px}
+.result .num{font-family:var(--display);font-stretch:72%;font-weight:900;font-size:72px;line-height:1}
+.result .num small{font-size:24px;color:var(--band-muted)}
+.meter{height:10px;border-radius:9px;background:rgba(255,255,255,.12);margin:14px 0 16px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--go);transition:width .5s ease}
+.result p{color:var(--band-muted);font-size:15px}
+.result .btn{margin-top:18px}
+@media (max-width:860px){.check{grid-template-columns:1fr}.result{position:static}}
+@media (max-width:480px){.q{flex-direction:column;align-items:flex-start}}
+.cform{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;max-width:720px}
+.cform label{display:grid;gap:6px;font-size:13px;color:var(--band-muted)}
+.cform input,.cform textarea{font:inherit;font-size:15px;color:var(--band-fg);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:13px 14px}
+.cform input:focus,.cform textarea:focus{outline:2px solid var(--go);border-color:transparent}
+.cform .full{grid-column:1/-1}
+.cform textarea{min-height:90px;resize:vertical}
+.cform .fine{font-size:12px;color:var(--band-muted)}
+@media (max-width:620px){.cform{grid-template-columns:1fr}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.meter i{transition:none}}
 </style>
 </head><body>
 
 
 <nav><div class="wrap">
   <a class="logo" href="#top"><span class="bars"><i style="height:8px"></i><i style="height:12px"></i><i style="height:16px"></i><i style="height:20px"></i></span>FULL ROSTER</a>
-  <div class="links"><a href="#leaks">Why</a><a href="#services">What we do</a><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+  <div class="links"><a href="#work">Our work</a><a href="#check">Self-check</a><a href="#services">What we do</a><a href="#process">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
   <a class="btn" href="#contact">Free audit</a>
 </div></nav>
 
@@ -157,6 +201,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </aside>
 </div></header>
+
+
+<section id="work" style="padding-top:24px"><div class="wrap">
+  <div class="sec-head rv"><h2>See what we build</h2><p>Three example sites for made-up gyms, built the same way we'd build yours. Click through. They work on your phone too.</p></div>
+  <div class="work">
+    <a class="shot rv" href="examples/ironclad-boxing/"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>ironcladboxing.com</span></div><img src="img/demo-ironclad.jpg" alt="Example boxing gym homepage" loading="lazy" width="1280" height="800"></div>
+      <h3>Boxing club</h3><p>Dark and gritty. Weekly schedule, simple pricing, free-class booking.</p><span class="go">Open the example →</span></a>
+    <a class="shot rv" href="examples/forge-crossfit/"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>forgecrossfit.com</span></div><img src="img/demo-forge.jpg" alt="Example CrossFit gym homepage" loading="lazy" width="1280" height="800"></div>
+      <h3>CrossFit box</h3><p>Bright and bold. Three-step intro, live class times, membership cards.</p><span class="go">Open the example →</span></a>
+    <a class="shot rv" href="examples/kaizen-martial-arts/"><div class="frame"><div class="bar"><i></i><i></i><i></i><span>kaizenmartialarts.com</span></div><img src="img/demo-kaizen.jpg" alt="Example martial arts school homepage" loading="lazy" width="1280" height="800"></div>
+      <h3>Martial arts school</h3><p>Calm and parent-friendly. Programs by age, free trial week.</p><span class="go">Open the example →</span></a>
+  </div>
+  <p class="disclaim rv">These are demo gyms, not clients. Names, prices and times are examples.</p>
+</div></section>
+
+<section id="check" style="padding-top:24px"><div class="wrap">
+  <div class="sec-head rv"><h2>30-second website check</h2><p>Answer six quick questions about your gym's website. No email needed, nothing gets saved.</p></div>
+  <div class="check">
+    <div class="qs" id="qs"></div>
+    <aside class="result" aria-live="polite"><div class="eyebrow" style="color:var(--go)">Your score</div><div class="num" id="score">0<small> / 6</small></div><div class="meter"><i id="meter"></i></div><p id="verdict">Answer the questions to see where you stand.</p><a class="btn" href="#contact" id="checkcta">Get a free audit</a></aside>
+  </div>
+</div></section>
 
 <section id="leaks" style="padding-top:24px"><div class="wrap">
   <div class="sec-head"><h2>Where gyms lose members</h2><p>Most independent gyms have great coaching and a website that sends people to the chain down the street.</p></div>
@@ -235,8 +301,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <section class="band contact" id="contact"><div class="wrap">
   <div class="eyebrow" style="color:var(--go)">Free audit</div>
   <h2 style="margin-top:12px">Want to see your new homepage?</h2>
-  <p style="color:var(--band-muted);margin-top:16px;max-width:52ch">Email us your gym's name and website. We'll send a free audit and a homepage mockup within 2 business days.</p>
-  <div class="mail"><a class="addr" id="addr" href="mailto:teamfullroster@gmail.com" style="color:inherit">teamfullroster@gmail.com</a><button class="copy" id="copy" type="button">Copy email</button></div>
+  <p style="color:var(--band-muted);margin-top:16px;max-width:52ch">Tell us about your gym. We'll send a free audit and a homepage mockup within 2 business days.</p>
+  <form class="cform" id="cform">
+    <label>Your name<input name="name" required autocomplete="name"></label>
+    <label>Gym name<input name="gym" required></label>
+    <label>Gym website (if you have one)<input name="site" placeholder="yourgym.com"></label>
+    <label>City<input name="city"></label>
+    <label class="full">Anything we should know? (optional)<textarea name="note" placeholder="e.g. we want more intro sign-ups, or our site is outdated"></textarea></label>
+    <div class="full" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center"><button class="btn" type="submit">Send my request</button><span class="fine">Opens your email app with everything filled in. Just hit send.</span></div>
+  </form>
+  <div class="mail" style="margin-top:28px"><span class="fine" style="color:var(--band-muted)">Or email us directly:</span> <a class="addr" id="addr" href="mailto:teamfullroster@gmail.com" style="color:inherit">teamfullroster@gmail.com</a><button class="copy" id="copy" type="button">Copy email</button></div>
 </div>
 <footer><div class="wrap"><span>© 2026 Full Roster</span><span>Websites, follow-up &amp; reviews for independent gyms</span></div></footer>
 </section>
@@ -250,4 +324,27 @@ document.getElementById('copy').addEventListener('click', async (e) => {
 });
 </script>
 
+
+<script>
+// scroll reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.leak,.svc,.step,.plan,.faq details').forEach(el=>el.classList.add('rv'));
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*60+'ms';io.observe(el)});
+// self-check
+const Q=['Can a visitor book a free class or intro right from your homepage?','Are your class times listed on your site?','Are your prices (or starting prices) on your site?','Does someone get an automatic email or text after they sign up for a trial?','Do you ask members for Google reviews on a regular schedule?','Does your site look good and load fast on a phone?'];
+const A=Array(Q.length).fill(null), qs=document.getElementById('qs');
+Q.forEach((t,i)=>{const d=document.createElement('div');d.className='q';const sp=document.createElement('span');sp.textContent=t;const g=document.createElement('div');g.className='yn';g.setAttribute('role','group');g.setAttribute('aria-label',t);
+['Yes','No'].forEach(l=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.className=l==='Yes'?'y':'n';b.setAttribute('aria-pressed','false');b.onclick=()=>{A[i]=l==='Yes';g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));upd()};g.appendChild(b)});
+d.append(sp,g);qs.appendChild(d)});
+function upd(){const done=A.filter(x=>x!==null).length,yes=A.filter(x=>x===true).length;
+document.getElementById('score').innerHTML=yes+'<small> / 6</small>';document.getElementById('meter').style.width=(yes/6*100)+'%';
+const v=document.getElementById('verdict');
+if(done<6){v.textContent=`${done} of 6 answered. Keep going.`;return}
+v.textContent=yes===6?"Nice. Your basics are covered. The next step is getting more people to see the site: reviews, Google posts and win-back emails. That's our Scale plan.":yes>=4?"Solid, with a couple of leaks. Fixing the 'no' answers usually means more trial sign-ups from the traffic you already get.":"Your site is probably losing people before they ever walk in. That's the most common thing we see, and the easiest to fix."}
+// contact form -> prefilled email
+document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);
+const sc=A.every(x=>x!==null)?`\nSelf-check score: ${A.filter(Boolean).length}/6`:'';
+const body=`Name: ${f.get('name')}\nGym: ${f.get('gym')}\nWebsite: ${f.get('site')||'none yet'}\nCity: ${f.get('city')||''}\n\n${f.get('note')||''}${sc}`;
+location.href='mailto:teamfullroster@gmail.com?subject='+encodeURIComponent('Free audit request: '+f.get('gym'))+'&body='+encodeURIComponent(body)});
+</script>
 </body></html>

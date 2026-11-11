@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forge CrossFit | Demo site by Full Roster</title>
+<meta name="description" content="Demo website built by Full Roster for a fictional CrossFit gym.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,500..900&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#F7F7F2;--fg:#111512;--mut:#5B635C;--line:#E2E3DB;--card:#fff;--acc:#C6F432;--dark:#111512}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.demo{background:#FF5A1F;color:#0F1A2B;font-size:13px;font-weight:600;text-align:center;padding:8px 16px}.demo a{text-decoration:underline}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{font-family:Archivo,sans-serif;font-weight:900;font-stretch:125%;font-size:22px;letter-spacing:-.01em}
+.logo i{display:inline-block;width:12px;height:12px;background:var(--acc);border:2px solid var(--dark);margin-right:8px;transform:rotate(45deg)}
+.links{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--mut)}
+.btn{display:inline-block;background:var(--dark);color:#fff;font-weight:700;font-size:14px;padding:13px 22px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn.acc{background:var(--acc);color:var(--dark)}
+.hero{padding:40px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+h1{font-family:Archivo,sans-serif;font-weight:900;font-stretch:115%;font-size:clamp(44px,7vw,86px);line-height:.95;letter-spacing:-.02em}
+h1 mark{background:var(--acc);padding:0 .12em;color:inherit}
+.hero p{font-size:18px;color:var(--mut);margin:20px 0 28px;max-width:500px}
+.wod{background:#fff;border:2px solid var(--dark);border-radius:24px;box-shadow:10px 10px 0 var(--dark);overflow:hidden}
+.wh{display:flex;justify-content:space-between;align-items:center;background:var(--dark);color:#fff;padding:16px 22px;font-weight:600}.wh b{background:var(--acc);color:var(--dark);padding:3px 10px;border-radius:999px;font-size:13px}
+.wb{padding:22px}.wt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-top:14px}.wt:first-child{margin-top:0}.wb p{font-family:Archivo,sans-serif;font-size:20px;font-weight:700;line-height:1.3;margin-top:4px}
+.wf{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:14px 22px;font-size:13px;color:var(--mut)}
+.stats{display:flex;gap:28px;margin-top:30px;flex-wrap:wrap}
+.stats div{font-size:13px;color:var(--mut)}.stats b{display:block;font-family:Archivo,sans-serif;font-size:28px;color:var(--fg)}
+section{padding:90px 0}
+h2{font-family:Archivo,sans-serif;font-weight:900;font-stretch:110%;font-size:clamp(32px,4.6vw,54px);line-height:1;letter-spacing:-.015em}
+.sub{color:var(--mut);max-width:560px;margin-top:12px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:40px}
+.step{background:var(--card);border:2px solid var(--dark);border-radius:18px;padding:24px}
+.step .n{width:38px;height:38px;border-radius:50%;background:var(--acc);border:2px solid var(--dark);display:grid;place-items:center;font-weight:800;margin-bottom:14px}
+.step h3{font-size:19px;margin-bottom:6px}.step p{color:var(--mut);font-size:15px}
+.dark{background:var(--dark);color:#fff}.dark .sub{color:#A9B1A9}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
+.tabs button{font:inherit;font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;border:1px solid #3A403B;background:transparent;color:#fff;cursor:pointer}
+.tabs button.on{background:var(--acc);color:var(--dark);border-color:var(--acc)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:20px}
+.slot{border:1px solid #2E332F;border-radius:14px;padding:16px;background:#181C19}
+.slot b{font-size:20px;display:block}.slot span{color:#A9B1A9;font-size:13px}
+.slot .bar{height:6px;border-radius:9px;background:#2E332F;margin-top:12px;overflow:hidden}.slot .bar i{display:block;height:100%;background:var(--acc)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:40px}
+.plan{background:var(--card);border:2px solid var(--dark);border-radius:20px;padding:28px}
+.plan.hot{background:var(--acc)}
+.plan .amt{font-family:Archivo,sans-serif;font-weight:900;font-size:48px;margin:8px 0}.plan .amt small{font-size:16px;font-family:Inter;font-weight:500;color:var(--mut)}
+.plan ul{list-style:none;margin:16px 0 22px;font-size:14px}.plan li{padding:7px 0;border-top:1px solid rgba(0,0,0,.1)}
+.quote{font-family:Archivo,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;line-height:1.25;max-width:820px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;max-width:720px}
+input,select{font:inherit;padding:14px 16px;border-radius:12px;border:2px solid var(--dark);background:#fff}
+form .full{grid-column:1/-1}
+.ok{display:none;font-weight:600;color:#2F6B12}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--mut);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}.rev.in{opacity:1;transform:none}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.links{display:none}form{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none}}
+</style></head>
+<body>
+<div class="demo">Demo site built by Full Roster for a fictional gym. Names, prices and times are examples. <a href="../../">Back to Full Roster</a></div>
+<nav><div class="wrap"><a class="logo" href="#"><i></i>FORGE</a>
+<div class="links"><a href="#start">Start here</a><a href="#schedule">Schedule</a><a href="#pricing">Pricing</a></div>
+<a class="btn acc" href="#intro">Free intro</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<div><h1 class="rev">Strong for the <mark>long run.</mark></h1>
+<p class="rev">Coached group classes that scale to you, whether it's your first squat or your fiftieth WOD. Start with a free 1-on-1 intro.</p>
+<a class="btn rev" href="#intro">Book a free intro</a>
+<div class="stats rev"><div><b>12</b>classes a week</div><div><b>1:10</b>max coach ratio</div><div><b>0</b>long contracts</div></div></div>
+<div class="wod rev"><div class="wh"><span>Today's workout</span><b>Tue</b></div>
+<div class="wb"><div class="wt">Strength</div><p>Back squat 5×5 @ 75%</p><div class="wt">Conditioning · 14 min AMRAP</div><p>10 Kettlebell swings<br>8 Box jumps<br>200 m Row</p><div class="wt">Scaled</div><p>Goblet squat · step-ups · 150 m row</p></div>
+<div class="wf"><span>5:30 PM class</span><span>9 of 12 spots taken</span></div></div>
+</div></header>
+
+<section id="start"><div class="wrap">
+<h2 class="rev">New here? Three steps.</h2><p class="sub rev">No one gets thrown into a workout they're not ready for.</p>
+<div class="steps">
+<div class="step rev"><div class="n">1</div><h3>Free intro</h3><p>30 minutes with a coach: goals, a movement check, and a tour.</p></div>
+<div class="step rev"><div class="n">2</div><h3>Foundations</h3><p>Three small-group sessions to learn the lifts safely.</p></div>
+<div class="step rev"><div class="n">3</div><h3>Join class</h3><p>Pick a membership and jump into any class on the schedule.</p></div>
+</div></div></section>
+
+<section id="schedule" class="dark"><div class="wrap">
+<h2 class="rev">Find your class</h2><p class="sub rev">Spots fill up. Bars show how full each class usually runs.</p>
+<div class="tabs rev" role="tablist"><button class="on" data-d="0">Mon / Wed / Fri</button><button data-d="1">Tue / Thu</button><button data-d="2">Saturday</button></div>
+<div class="slots" id="slots"></div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+<h2 class="rev">Memberships</h2><p class="sub rev">Month to month. Pause anytime for travel or injury.</p>
+<div class="plans">
+<div class="plan rev"><div class="sub" style="margin:0">Starter</div><div class="amt">$119<small>/mo</small></div><ul><li>2 classes a week</li><li>Open gym Saturday</li><li>Member app</li></ul><a class="btn" href="#intro">Start with a free intro</a></div>
+<div class="plan hot rev"><div style="font-weight:700">Unlimited</div><div class="amt">$169<small style="color:#2B3A12">/mo</small></div><ul><li>Every class, every week</li><li>Open gym anytime</li><li>Quarterly goal check-ins</li></ul><a class="btn" href="#intro">Start with a free intro</a></div>
+<div class="plan rev"><div class="sub" style="margin:0">Personal training</div><div class="amt">$65<small>/session</small></div><ul><li>1-on-1 coaching</li><li>Custom program</li><li>Packs of 4 or 8</li></ul><a class="btn" href="#intro">Talk to a coach</a></div>
+</div></div></section>
+
+<section id="intro" style="background:#fff;border-top:2px solid var(--dark)"><div class="wrap">
+<h2 class="rev">Book your free intro</h2><p class="sub rev">Pick a time. You'll get a confirmation email right away and a reminder the day before.</p>
+<form class="rev" onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block'">
+<input required placeholder="First name" aria-label="First name"><input type="email" required placeholder="Email" aria-label="Email">
+<select class="full" aria-label="Time"><option>Mon 4:30 PM</option><option>Wed 11:00 AM</option><option>Sat 10:30 AM</option></select>
+<button class="btn full" type="submit">Book my free intro</button>
+<div class="ok full">Demo only: on a real site, this books the intro and starts the follow-up emails.</div>
+</form></div></section>
+
+<footer><div class="wrap"><span>Forge CrossFit (fictional demo gym)</span><span>Website by <a href="../../" style="color:#FF5A1F;font-weight:600">Full Roster</a></span></div></footer>
+<script>
+const D=[[['5:30 AM','Class',85],['6:30 AM','Class',70],['12:00 PM','Class',40],['4:30 PM','Class',75],['5:30 PM','Class',95],['6:30 PM','Foundations',50]],
+[['6:00 AM','Class',80],['12:00 PM','Class',35],['5:00 PM','Class',90],['6:00 PM','Olympic lifting',45]],
+[['8:00 AM','Partner WOD',90],['9:00 AM','Class',65],['10:30 AM','Open gym',30]]];
+const box=document.getElementById('slots');
+function show(i){box.replaceChildren(...D[i].map(([t,n,p])=>{const d=document.createElement('div');d.className='slot';d.innerHTML=`<b>${t}</b><span>${n}</span><div class="bar"><i style="width:${p}%"></i></div>`;return d}));
+document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',+b.dataset.d===i))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>show(+b.dataset.d));show(0);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rev').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+</script>
+</body></html>
